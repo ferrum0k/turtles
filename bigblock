@@ -62,6 +62,7 @@ function main()
             turtle.turnRight()
         end
         turtle.turnLeft()
+        turtle.turnLeft()
         turtle.select(1)
         tDig(forward)
         turtle.place()
@@ -69,7 +70,8 @@ function main()
             turtle.refuel(15)
             turtle.drop()
         end
-        turtle.select(3)
+        turtle.select(1)
+        turtle.turnRight()
         turtle.turnRight()
     end
 end
