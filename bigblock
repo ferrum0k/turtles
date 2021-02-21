@@ -1,0 +1,62 @@
+forward = 1
+up = 2
+down = 3
+ 
+function tDig(dir)
+    -- 1 - вперёд, 2 - вверх, 3 - вниз
+        --write("dig started \n")
+        if dir == 1 then
+            while (turtle.detect()) do
+                turtle.dig()
+            end
+        end    
+        if dir == 2 then
+            while (turtle.detectUp()) do
+                turtle.digUp()
+            end
+        end
+        if dir == 3 then
+            while (turtle.detectDown()) do
+                turtle.digDown()
+            end
+        end
+        --write("dig ended \n")
+end
+ 
+function tMoveForward()
+    while (not turtle.forward()) do
+        turtle.attack()
+    end
+end
+ 
+ 
+function digTunnelSection(count)
+  for i = 1, count do
+    tDig(forward)
+    tMoveForward()
+    tDig(up)
+    tDig(down)
+ end
+end
+ 
+function main()
+    tDig(up)
+    tDig(down)
+    turtle.turnLeft()
+    tDig(forward)
+    turtle.select(2)
+    turtle.place()
+    turtle.select(3)
+    turtle.turnRight()
+    digTunnelSection(10)
+    turtle.turnLeft()
+    tDig(forward)
+    tMoveForward()
+    tDig(forward)
+    turtle.select(2)
+    turtle.place()
+    turtle.left()
+    digTunnelSection(10)
+end
+ 
+main()
