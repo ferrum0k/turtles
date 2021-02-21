@@ -61,10 +61,16 @@ function main()
             turtle.place()
             turtle.turnRight()
         end
+        turtle.turnLeft()
         turtle.select(1)
-        tDig(down)
-        turtle.placeDown()
+        tDig(forward)
+        turtle.place()
+        for i = 3, 16 do
+            turtle.refuel(15)
+            turtle.drop()
+        end
         turtle.select(3)
+        turtle.turnRight()
     end
 end
  
