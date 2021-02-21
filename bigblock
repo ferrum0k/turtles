@@ -41,11 +41,15 @@ end
  
 function dropUnneccesary()
    for i = 3, 16 do
-      n = turtle.getItemDetail(i).name
-      if (n == "minecraft:dirt") or (n == "minecraft:dolomite) or (n == "minecraft:cobblestone") or (n == "minecraft:diorite") or (n == "minecraft:granite") or (n == "minecraft:andesite") then
-         turtle.dropDown(i)
+      turtle.select(i)
+      if (turtle.getItemDetail(i)) then
+         n = turtle.getItemDetail(i).name
+         if (n == "minecraft:dirt") or (n == "minecraft:dolomite) or (n == "minecraft:cobblestone") or (n == "minecraft:diorite") or (n == "minecraft:granite") or (n == "minecraft:andesite") then
+            turtle.dropDown(i)
+         end
       end
    end
+   turtle.select(3)
 end
 function main()
     while (true) do
