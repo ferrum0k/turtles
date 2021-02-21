@@ -44,16 +44,16 @@ function dropUnneccesary()
       turtle.select(i)
       if (turtle.getItemDetail(i)) then
          n = turtle.getItemDetail(i).name
-         if (n == "minecraft:dirt") or (n == "minecraft:dolomite) or (n == "minecraft:cobblestone") or (n == "minecraft:diorite") or (n == "minecraft:granite") or (n == "minecraft:andesite") then
+         if (n == "minecraft:dirt") or (n == "minecraft:dolomite") or (n == "minecraft:cobblestone") or (n == "minecraft:diorite") or (n == "minecraft:granite") or (n == "minecraft:andesite") then
             turtle.dropDown(i)
          end
       end
    end
-   turtle.select(3)
+   turtle.select(1)
 end
 function main()
     while (true) do
-        for i = 1, 15 do
+        for i = 1, 7 do
             tDig(up)
             tDig(down)
             digTunnelSection(25)
@@ -72,6 +72,8 @@ function main()
             turtle.select(2)
             turtle.place()
             turtle.turnRight()
+            turtle.digDown()
+            dropUnneccesary()
         end
         turtle.turnLeft()
         turtle.turnLeft()
