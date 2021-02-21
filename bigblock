@@ -55,7 +55,7 @@ function main()
     tDig(forward)
     turtle.select(2)
     turtle.place()
-    turtle.left()
+    turtle.turnLeft()
     digTunnelSection(10)
 end
  
